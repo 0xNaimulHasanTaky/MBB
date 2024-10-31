@@ -20,13 +20,13 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
-          java-version: '8'  # Set Java version to 8 for compatibility with Gradle 2.2
+          java-version: '8'  # Java 8 for compatibility with Gradle 2.2
 
-      - name: Install required Android SDKs
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends lib32stdc++6 lib32z1
-          yes | sdkmanager "platforms;android-21" "build-tools;21.1.0"
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v2
+        with:
+          api-level: 21
+          build-tools: 21.1.0
 
       - name: Install Gradle
         uses: gradle/gradle-build-action@v2
