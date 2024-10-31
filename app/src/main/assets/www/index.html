@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমানত শাহ্ লুঙ্গি</title>
+    <style>
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #searchInput {
+            margin: 20px auto;
+            display: block;
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        /* Modal styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align: center;">আমানত শাহ্ লুঙ্গি</h2>
+
+<input type="text" id="searchInput" placeholder="Search for a product..." onkeyup="searchTable()">
+
+<table id="productTable">
+    <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Memo No</th>
+    </tr>
+    <tr>
+        <td>আশির্বাদ</td>
+        <td>420</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>অনুভব</td>
+        <td>440</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>*উওিরন</td>
+        <td>560</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>*সম্মান</td>
+        <td>655</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>রংধনু</td>
+        <td>490</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>অপূর্ব</td>
+        <td>460</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>রেইনবো</td>
+        <td>255</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>মর্যাদা</td>
+        <td>460</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>*অন্তরঙ্গ</td>
+        <td>470</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>তরঙ্গ</td>
+        <td>630</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>স্বাধীন</td>
+        <td>535</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>উচ্চবিলাস</td>
+        <td>570</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>আন্তরিক</td>
+        <td>645</td>
+        <td onclick="showMemoImage('2713')">2713</td>
+    </tr>
+    <tr>
+        <td>সৌখিন</td>
+        <td>545</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>*শুভর্ণ</td>
+        <td>450</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>ব্যক্তিত্ব</td>
+        <td>1050</td>
+        <td onclick="showMemoImage('1740')">1740</td>
+    </tr>
+    <tr>
+        <td>আশাপূর্ণ</td>
+        <td>590</td>
+        <td onclick="showMemoImage('2713')">2713</td>
+     </tr>
+    <tr>
+        <td>অপরুপ</td>
+        <td>470</td>
+        <td onclick="showMemoImage('2713')">2713</td>
+    </tr>
+    <tr>
+        <td>স্টাইল</td>
+        <td>600</td>
+        <td onclick="showMemoImage('2713')">2713</td>
+    </tr>
+    <tr>
+        <td>প্রাধান্য</td>
+        <td>515</td>
+        <td onclick="showMemoImage('3210')">3210</td>
+    </tr>
+    <tr>
+        <td>অনন্ত</td>
+        <td>495</td>
+        <td onclick="showMemoImage('3210')">3210</td>
+    </tr>
+    <tr>
+        <td>ময়নামতি</td>
+        <td>190</td>
+        <td onclick="showMemoImage('3511')">3511</td>
+    </tr>
+</table>
+
+<!-- Modal to display memo image -->
+<div id="memoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="memoImage" src="" alt="Memo Image" style="max-width: 100%; height: auto;">
+    </div>
+</div>
+
+<script>
+    function searchTable() {
+        let input = document.getElementById("searchInput");
+        let filter = input.value.toUpperCase();
+        let table = document.getElementById("productTable");
+        let tr = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < tr.length; i++) {
+            let td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                let txtValue = td.textContent || td.innerText;
+                tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+            }
+        }
+    }
+
+    function showMemoImage(memoNo) {
+        const modal = document.getElementById("memoModal");
+        const memoImage = document.getElementById("memoImage");
+
+        // Set the image source based on memo number
+        memoImage.src = `images/${memoNo}.jpg`; // Ensure image path is correct
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("memoModal");
+        modal.style.display = "none";
+    }
+
+    // Close the modal when clicking outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById("memoModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+                                                  </html>
+  
